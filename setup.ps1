@@ -52,6 +52,6 @@ if ($pathVariable -notcontains $currentDirectory) {
 
 # 覆盖配置文件
 # 复制config/ 到 maa目录 并覆盖
-Copy-Item -Path $currentDirectory\config\* -Destination $maaLinkSource -Force -Recurse
+Copy-Item -Path $currentDirectory\config -Destination $maaLinkSource\config -Force -Recurse
 # 复制data/ 到 maa目录 并覆盖
-Copy-Item -Path $currentDirectory\data\* -Destination $maaLinkSource -Force -Recurse
+Copy-Item -Path $currentDirectory\data -Destination $maaLinkSource\data -Force -Recurse
