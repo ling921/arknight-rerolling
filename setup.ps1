@@ -10,10 +10,12 @@ if (!(Test-Path $maaExecutablePath)) {
 
 # 需要软链的文件夹
 $maaLinkSource = Join-Path $currentDirectory "maa"
-# 软链的文件夹不存在，则创建maa目录
-if (!(Test-Path $maaLinkSource)) {
-    New-Item -ItemType Directory -Path $maaLinkSource
+# 软链的文件夹存在则备份；不存在，则创建maa目录
+if (Test-Path $maaLinkSource) {
+    $maaLinkSourceBakup = Join-Path $currentDirectory "maa_bak"
+    Move-Item $maaLinkSource -Destination $maaLinkSourceBakup
 }
+New-Item -ItemType Directory -Path $maaLinkSource
 
 
 # 获取maa-cli 资源文件完整路径

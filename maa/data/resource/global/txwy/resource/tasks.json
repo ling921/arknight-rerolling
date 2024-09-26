@@ -1,0 +1,519 @@
+{
+  "ConversationSkip": {
+    "action": "ClickSelf",
+    "template": ["ConversationSkip.png", "ConversationSkip2.png"],
+    "roi": [1140, 35, 90, 38],
+    "next": ["ConversationSkipConfirm", "#back"],
+    "postDelay": 200
+  },
+  "ConversationSkipConfirm": {
+    "action": "ClickSelf",
+    "template": "ConversationSkipConfirm.png",
+    "next": ["#back"],
+    "roi": [770, 338, 60, 150],
+    "postDelay": 1000
+  },
+  "MenuBack": {
+    "action": "ClickSelf",
+    "template": ["Return.png", "Return-White.png"],
+    "next": ["#back"],
+    "templThreshold": [0.7, 0.8],
+    "roi": [0, 0, 180, 80],
+    "postDelay": 1000
+  },
+  "DialogClose": {
+    "action": "ClickSelf",
+    "template": "DialogClose.png",
+    "next": ["#back"],
+    "roi": [1152, 0, 128, 105],
+    "postDelay": 100
+  },
+  "TutorialBattleSpeedUp": {
+    "action": "ClickSelf",
+    "template": "TutorialBattleSpeedUp.png",
+    "next": ["#back"],
+    "roi": [1059, 17, 76, 72],
+    "postDelay": 200
+  },
+
+  "TutorialStep_1": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": [
+      "TutorialStep_1_Stop",
+      "#self@ConversationSkip",
+      "#self@TutorialDeployTexas",
+      "#self@TutorialDeployExusisa",
+      "#self"
+    ],
+    "specificRect": [500, 300, 200, 200],
+    "postDelay": 100
+  },
+  "TutorialStep_1_Stop": {
+    "algorithm": "OcrDetect",
+    "action": "DoNothing",
+    "text": ["30"],
+    "next": []
+  },
+  "TutorialDeployTexas": {
+    "action": "Swipe",
+    "template": "TutorialActorTexas.png",
+    "next": ["TutorialDeployTexas_Right"],
+    "specificRect": [1042, 597, 112, 119],
+    "rectMove": [529, 379, 107, 89],
+    "specialParams": [400, 0, 0, 0],
+    "roi": [1042, 597, 112, 119],
+    "maskRange": [100, 255],
+    "postDelay": 100
+  },
+  "TutorialDeployTexas_Right": {
+    "algorithm": "JustReturn",
+    "action": "Swipe",
+    "next": ["#back"],
+    "specificRect": [529, 379, 107, 89],
+    "rectMove": [729, 379, 107, 89],
+    "specialParams": [200, 0, 0, 0],
+    "postDelay": 200
+  },
+  "TutorialDeployExusisa": {
+    "action": "Swipe",
+    "template": "TutorialActorExusisa.png",
+    "next": ["TutorialDeployExusisa_Right"],
+    "specificRect": [1160, 597, 118, 119],
+    "rectMove": [641, 272, 107, 94],
+    "specialParams": [400, 0, 0, 0],
+    "roi": [1160, 597, 118, 119],
+    "maskRange": [100, 255],
+    "postDelay": 100
+  },
+  "TutorialDeployExusisa_Right": {
+    "algorithm": "JustReturn",
+    "action": "Swipe",
+    "next": ["#back"],
+    "specificRect": [641, 272, 107, 94],
+    "rectMove": [841, 272, 107, 94],
+    "specialParams": [200, 0, 0, 0],
+    "postDelay": 200
+  },
+
+  "TutorialStep_2": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": [
+      "TutorialStep_2_Stop",
+      "#self@ConversationSkip",
+      "#self@TutorialTexasSkill",
+      "#self@TutorialTexasSkillActive",
+      "#self@TutorialBattleSpeedUp",
+      "#self"
+    ],
+    "specificRect": [500, 300, 200, 200],
+    "postDelay": 100
+  },
+  "TutorialStep_2_Stop": {
+    "action": "DoNothing",
+    "template": "TutorialPRTSTalk.png",
+    "next": [],
+    "roi": [43, 41, 177, 170]
+  },
+  "TutorialTexasSkill": {
+    "action": "ClickSelf",
+    "template": "TutorialTexasSkill.png",
+    "next": ["#back"],
+    "roi": [407, 213, 160, 170],
+    "postDelay": 200
+  },
+  "TutorialTexasSkillActive": {
+    "action": "ClickSelf",
+    "template": "TutorialTexasSkillActive.png",
+    "next": ["#back"],
+    "roi": [779, 323, 199, 197],
+    "postDelay": 200
+  },
+
+  "TutorialStep_3": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": [
+      "TutorialStep_3_Stop",
+      "#self@ConversationSkip",
+      "#self@TutorialRecruitOnce",
+      "#self@TutorialAddChatacter",
+      "#self@TutorialThemeSongTag",
+      "#self@TutorialThemeSongEvilTime",
+      "#self@TutorialBattle_0-1",
+      "#self@TutorialStartBattle",
+      "#self@TutorialBattleSpeedUp",
+      "#self@TutorialDeployRangers",
+      "#self@TutorialDeployYeto",
+      "#self"
+    ],
+    "specificRect": [500, 300, 200, 200],
+    "postDelay": 100
+  },
+  "TutorialStep_3_Stop": {
+    "action": "DoNothing",
+    "template": "TutorialGetRewards.png",
+    "next": [],
+    "roi": [44, 577, 432, 111]
+  },
+  "TutorialRecruitOnce": {
+    "action": "ClickSelf",
+    "template": "TutorialRecruitOnce.png",
+    "next": ["#self", "TutorialRecruitSkip"],
+    "roi": [803, 618, 197, 60],
+    "postDelay": 200,
+    "onErrorNext": ["#back"]
+  },
+  "TutorialRecruitSkip": {
+    "action": "ClickSelf",
+    "template": "TutorialRecruitSkip.png",
+    "next": ["#back"],
+    "roi": [1184, 17, 76, 58],
+    "postDelay": 600
+  },
+  "TutorialAddChatacter": {
+    "action": "ClickSelf",
+    "template": "TutorialAddChatacter.png",
+    "next": ["TutorialSelectChatacter"],
+    "roi": [450, 100, 200, 300],
+    "postDelay": 400
+  },
+  "TutorialSelectChatacter": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": ["TutorialSelectChatacterConfirm"],
+    "specificRect": [385, 134, 121, 209],
+    "postDelay": 400
+  },
+  "TutorialSelectChatacterConfirm": {
+    "action": "ClickSelf",
+    "template": "TutorialSelectChatacterConfirm.png",
+    "next": ["TutorialGoHome"],
+    "roi": [990, 653, 248, 53],
+    "postDelay": 200
+  },
+  "TutorialGoHome": {
+    "action": "ClickSelf",
+    "template": "TutorialGoHome.png",
+    "next": ["TutorialGoHome2"],
+    "roi": [162, 14, 211, 51],
+    "postDelay": 200
+  },
+  "TutorialGoHome2": {
+    "action": "ClickSelf",
+    "template": "TutorialGoHome2.png",
+    "next": ["#back"],
+    "roi": [66, 221, 54, 90],
+    "postDelay": 200
+  },
+  "TutorialThemeSongTag": {
+    "action": "ClickSelf",
+    "template": "TutorialThemeSongTag.png",
+    "next": ["#back"],
+    "roi": [212, 646, 48, 40],
+    "postDelay": 200
+  },
+  "TutorialThemeSongEvilTime": {
+    "action": "ClickSelf",
+    "template": "TutorialThemeSongEvilTime.png",
+    "next": ["#back"],
+    "roi": [860, 377, 143, 104],
+    "postDelay": 200
+  },
+  "TutorialBattle_0-1": {
+    "action": "ClickSelf",
+    "template": "TutorialBattle_0-1.png",
+    "next": ["#back"],
+    "roi": [574, 319, 132, 42],
+    "postDelay": 200
+  },
+  "TutorialStartBattle": {
+    "action": "ClickSelf",
+    "template": "TutorialStartBattle.png",
+    "next": ["#self", "TutorialStartBattleConfirm"],
+    "roi": [1120, 648, 116, 41],
+    "postDelay": 400
+  },
+  "TutorialStartBattleConfirm": {
+    "action": "ClickSelf",
+    "template": "TutorialStartBattleConfirm.png",
+    "next": ["#self", "#back"],
+    "roi": [1050, 460, 108, 131],
+    "postDelay": 200
+  },
+  "TutorialDeployRangers": {
+    "action": "Swipe",
+    "template": "TutorialActorRangers.png",
+    "next": ["#self", "TutorialDeployRangers_Down"],
+    "specificRect": [686, 599, 115, 118],
+    "rectMove": [864, 145, 90, 76],
+    "specialParams": [400, 0, 0, 0],
+    "roi": [686, 599, 115, 118],
+    "maskRange": [100, 255],
+    "postDelay": 100
+  },
+  "TutorialDeployRangers_Down": {
+    "algorithm": "JustReturn",
+    "action": "Swipe",
+    "next": ["#back"],
+    "specificRect": [864, 145, 90, 76],
+    "rectMove": [864, 345, 90, 76],
+    "specialParams": [200, 0, 0, 0],
+    "postDelay": 1000
+  },
+  "TutorialDeployYeto": {
+    "action": "Swipe",
+    "template": "TutorialActorYeto.png",
+    "next": ["#self", "TutorialDeployYeto_Right"],
+    "specificRect": [806, 597, 118, 121],
+    "rectMove": [681, 261, 83, 69],
+    "specialParams": [400, 0, 0, 0],
+    "roi": [806, 597, 118, 121],
+    "maskRange": [100, 255],
+    "postDelay": 100
+  },
+  "TutorialDeployYeto_Right": {
+    "algorithm": "JustReturn",
+    "action": "Swipe",
+    "next": ["TutorialDeployXXX"],
+    "specificRect": [681, 261, 83, 69],
+    "rectMove": [881, 261, 83, 69],
+    "specialParams": [200, 0, 0, 0],
+    "postDelay": 200
+  },
+  "TutorialDeployXXX": {
+    "algorithm": "JustReturn",
+    "action": "Swipe",
+    "next": ["TutorialDeployXXX_Up"],
+    "specificRect": [1162, 598, 116, 120],
+    "rectMove": [913, 404, 92, 76],
+    "specialParams": [400, 0, 0, 0],
+    "preDelay": 14000
+  },
+  "TutorialDeployXXX_Up": {
+    "algorithm": "JustReturn",
+    "action": "Swipe",
+    "next": ["#back"],
+    "specificRect": [913, 404, 92, 76],
+    "rectMove": [913, 204, 92, 76],
+    "specialParams": [200, 0, 0, 0],
+    "postDelay": 1000
+  },
+
+  "TutorialStep_4": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": [
+      "TutorialStep_4_Stop",
+      "#self@TutorialGetRewards",
+      "#self@ConversationSkip",
+      "#self@TutorialStartBattle",
+      "#self@TutorialBattle_TR-1",
+      "#self@TutorialBattleSpeedUp",
+      "#self@TutorialDeployRangers2",
+      "#self@TutorialDeployHibiscus",
+      "#self"
+    ],
+    "specificRect": [201, 77, 198, 151],
+    "postDelay": 100
+  },
+  "TutorialStep_4_Stop": {
+    "action": "DoNothing",
+    "template": "TutorialBattle_0-2.png",
+    "next": [],
+    "roi": [867, 390, 154, 70]
+  },
+  "TutorialGetRewards": {
+    "action": "ClickSelf",
+    "template": "TutorialGetRewards.png",
+    "next": ["TutorialGetRewardsConfirm"],
+    "roi": [44, 577, 432, 111],
+    "postDelay": 2000
+  },
+  "TutorialGetRewardsConfirm": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": ["#back"],
+    "specificRect": [525, 610, 255, 98],
+    "postDelay": 200
+  },
+  "TutorialBattle_TR-1": {
+    "action": "ClickSelf",
+    "template": "TutorialBattle_TR-1.png",
+    "next": ["TutorialStartBattle"],
+    "roi": [484, 411, 143, 48],
+    "postDelay": 200
+  },
+  "TutorialDeployRangers2": {
+    "action": "Swipe",
+    "template": "TutorialActorRangers.png",
+    "next": ["#self@ConversationSkip", "#self", "TutorialDeployRangers2_Left"],
+    "specificRect": [1047, 597, 115, 111],
+    "rectMove": [776, 233, 95, 63],
+    "specialParams": [400, 0, 0, 0],
+    "roi": [1031, 587, 249, 132],
+    "maskRange": [100, 255],
+    "postDelay": 100
+  },
+  "TutorialDeployRangers2_Left": {
+    "algorithm": "JustReturn",
+    "action": "Swipe",
+    "next": ["TutorialDeployYeto2"],
+    "specificRect": [776, 233, 95, 63],
+    "rectMove": [576, 233, 95, 63],
+    "specialParams": [200, 0, 0, 0],
+    "postDelay": 1000
+  },
+  "TutorialDeployYeto2": {
+    "action": "Swipe",
+    "template": "TutorialActorYeto.png",
+    "next": ["#self", "TutorialDeployYeto2_Up"],
+    "specificRect": [1164, 597, 112, 119],
+    "rectMove": [687, 341, 85, 73],
+    "specialParams": [400, 0, 0, 0],
+    "roi": [1031, 587, 249, 132],
+    "maskRange": [100, 255],
+    "postDelay": 100
+  },
+  "TutorialDeployYeto2_Up": {
+    "algorithm": "JustReturn",
+    "action": "Swipe",
+    "next": ["#back"],
+    "specificRect": [687, 341, 85, 73],
+    "rectMove": [687, 141, 85, 73],
+    "specialParams": [200, 0, 0, 0],
+    "postDelay": 200
+  },
+  "TutorialDeployHibiscus": {
+    "action": "Swipe",
+    "template": "TutorialActorHibiscus.png",
+    "next": ["#self", "TutorialDeployHibiscus_Left"],
+    "specificRect": [1164, 597, 112, 119],
+    "rectMove": [888, 307, 103, 70],
+    "specialParams": [400, 0, 0, 0],
+    "roi": [1031, 587, 249, 132],
+    "maskRange": [100, 255],
+    "postDelay": 100
+  },
+  "TutorialDeployHibiscus_Left": {
+    "algorithm": "JustReturn",
+    "action": "Swipe",
+    "next": ["#back"],
+    "specificRect": [888, 307, 103, 70],
+    "rectMove": [688, 307, 103, 70],
+    "specialParams": [200, 0, 0, 0],
+    "postDelay": 1000
+  },
+
+  "TutorialStep_5": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": [
+      "TutorialStep_5_Stop",
+      "#self@MenuBack",
+      "#self@TutorialContinuousLogin",
+      "#self@TutorialGetRewards5",
+      "#self@TutorialMailboxOpen",
+      "#self@DialogClose",
+      "#self"
+    ],
+    "specificRect": [598, 607, 82, 64],
+    "postDelay": 100
+  },
+  "TutorialStep_5_Stop": {
+    "algorithm": "OcrDetect",
+    "action": "ClickRect",
+    "text": ["未讀郵件0"],
+    "roi": [200, 630, 130, 42],
+    "specificRect": [39, 29, 95, 31],
+    "next": []
+  },
+  "TutorialRewardConfirm": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": ["#back"],
+    "specificRect": [598, 607, 82, 64],
+    "postDelay": 200
+  },
+  "TutorialContinuousLogin": {
+    "algorithm": "OcrDetect",
+    "action": "ClickRect",
+    "text": ["連續", "登入"],
+    "roi": [116, 125, 112, 45],
+    "specificRect": [116, 125, 112, 45],
+    "next": ["TutorialContinuousLoginRewards"],
+    "postDelay": 200
+  },
+  "TutorialContinuousLoginRewards": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": [
+      "TutorialNewbieTasks@TutorialRewardConfirm",
+      "TutorialNewbieTasks"
+    ],
+    "specificRect": [290, 491, 103, 126],
+    "postDelay": 1000
+  },
+  "TutorialNewbieTasks": {
+    "algorithm": "OcrDetect",
+    "action": "ClickSelf",
+    "text": ["新手任務"],
+    "roi": [119, 202, 106, 43],
+    "specificRect": [119, 202, 106, 43],
+    "next": ["TutorialNewbieTasksRewards"],
+    "postDelay": 200
+  },
+  "TutorialNewbieTasksRewards": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": ["TutorialCheckIn@TutorialRewardConfirm", "TutorialCheckIn"],
+    "specificRect": [994, 155, 160, 67],
+    "postDelay": 1000
+  },
+  "TutorialCheckIn": {
+    "algorithm": "OcrDetect",
+    "action": "ClickSelf",
+    "text": ["累計", "簽到"],
+    "roi": [123, 276, 99, 42],
+    "specificRect": [123, 276, 99, 42],
+    "next": ["TutorialCheckInRewards"],
+    "postDelay": 200
+  },
+  "TutorialCheckInRewards": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": ["TutorialNewbieRewardEnds@TutorialRewardConfirm"],
+    "specificRect": [320, 452, 98, 110],
+    "postDelay": 1000
+  },
+  "TutorialNewbieRewardEnds": {
+    "algorithm": "JustReturn",
+    "action": "ClickRect",
+    "next": ["#back"],
+    "specificRect": [1234, 60, 26, 29],
+    "postDelay": 200
+  },
+  "TutorialGetRewards5": {
+    "action": "ClickSelf",
+    "template": "TutorialGetRewards5.png",
+    "next": ["#back"],
+    "roi": [750, 451, 178, 63],
+    "postDelay": 200
+  },
+  "TutorialMailboxOpen": {
+    "action": "ClickSelf",
+    "template": "TutorialMailbox.png",
+    "next": ["TutorialMailboxReceiveAll"],
+    "roi": [157, 7, 68, 51],
+    "postDelay": 1200
+  },
+  "TutorialMailboxReceiveAll": {
+    "algorithm": "OcrDetect",
+    "action": "ClickSelf",
+    "next": ["#back"],
+    "roi": [1030, 632, 177, 57],
+    "text": ["收取", "所有", "郵件"],
+    "postDelay": 200
+  }
+}
