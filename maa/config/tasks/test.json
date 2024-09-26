@@ -1,0 +1,16 @@
+{
+    "closedown": false,
+    "startup": false,
+    "tasks": [
+        {
+            "name": "测试",
+            "type": "Custom",
+            "params": {
+                "enable": true,
+                "task_names": [
+                    "TestTask"
+                ]
+            }
+        }
+    ]
+}

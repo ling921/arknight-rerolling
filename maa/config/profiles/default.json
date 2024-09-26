@@ -1,0 +1,20 @@
+{
+    "$schema": "../json-schema/asst.schema.json",
+    "connection": {
+        "preset": "ADB",
+        "adb_path": "C:/Program Files/platform-tools/adb.exe",
+        "address": "127.0.0.1:5555"
+    },
+    "resource": {
+        "global_resource": "txwy"
+    },
+    "static_options": {
+        "cpu_ocr": false
+    },
+    "instance_options": {
+        "touch_mode": "MiniTouch",
+        "deployment_with_pause": false,
+        "adb_lite_enabled": false,
+        "kill_adb_on_exit": false
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "resource/tasks.json"
+            ],
+            "url": "./maa/config/json-schema/maa_tasks.schema.json"
+        },
+        {
+            "fileMatch": [
+                "tasks/*.json"
+            ],
+            "url": "./maa/config/json-schema/task.schema.json"
+        }
+    ]
+}

@@ -396,3 +396,12 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Custom
+*.exe
+*.zip
+maa/data/
+!maa/data/resource/tasks.json
+!maa/data/resource/template/
+!maa/data/resource/global/*/tasks.json
+!maa/data/resource/global/*/template/
