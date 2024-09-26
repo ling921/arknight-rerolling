@@ -1,0 +1,46 @@
+{
+  "closedown": false,
+  "startup": false,
+  "tasks": [
+    {
+      "name": "战斗教学1",
+      "type": "Custom",
+      "params": {
+        "enable": true,
+        "task_names": ["TutorialStep_1"]
+      }
+    },
+    {
+      "name": "战斗教学2",
+      "type": "Custom",
+      "params": {
+        "enable": true,
+        "task_names": ["TutorialStep_2"]
+      }
+    },
+    {
+      "name": "战斗教学3",
+      "type": "Custom",
+      "params": {
+        "enable": true,
+        "task_names": ["TutorialStep_3"]
+      }
+    },
+    {
+      "name": "战斗教学4",
+      "type": "Custom",
+      "params": {
+        "enable": true,
+        "task_names": ["TutorialStep_4"]
+      }
+    },
+    {
+      "name": "领取奖励",
+      "type": "Custom",
+      "params": {
+        "enable": true,
+        "task_names": ["TutorialStep_5"]
+      }
+    }
+  ]
+}
