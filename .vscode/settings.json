@@ -1,16 +1,16 @@
 {
-    "json.schemas": [
-        {
-            "fileMatch": [
-                "resource/tasks.json"
-            ],
-            "url": "./maa/config/json-schema/maa_tasks.schema.json"
-        },
-        {
-            "fileMatch": [
-                "tasks/*.json"
-            ],
-            "url": "./maa/config/json-schema/task.schema.json"
-        }
-    ]
+  "json.schemas": [
+    {
+      "fileMatch": ["resource/tasks.json"],
+      "url": "./json-schema/maa_tasks.schema.json"
+    },
+    {
+      "fileMatch": ["tasks/*.json"],
+      "url": "./json-schema/task.schema.json"
+    },
+    {
+      "fileMatch": ["profiles/*.json"],
+      "url": "./json-schema/asst.schema.json"
+    }
+  ]
 }
